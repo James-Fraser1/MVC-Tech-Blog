@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
-const sequelize = require('../config/loginconnection');
+const sequelize = require('../config/connection');
 const saltRounds = 10;
 
 class User extends Model {
