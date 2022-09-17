@@ -10,7 +10,7 @@ const sequelize = require("./config/connection");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
-  secret: 'My name is Inigo Montoya, you killed my father; PREPARE TO DIE',
+  secret: 'I will take this secret to my grave',
   cookie: {},
   resave: false,
   saveUninitialized: true,
