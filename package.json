@@ -4,6 +4,7 @@
   "description": "## **Table of Contents** 1. [Project Description](#description) 2. [Installation](#installation) 3. [Usage](#usage) 4. [Questions](#questions)",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
