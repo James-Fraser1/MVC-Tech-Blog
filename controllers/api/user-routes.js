@@ -65,7 +65,7 @@ router.post('/login', withAuth, (req, res) => {
             email: req.session.email
         }
     })
-    // When user info doesn't work, give vague response not letting them know if username or password was incorrect
+        // When user info doesn't work, give vague response not letting them know if username or password was incorrect
         .then(dbUserTable => {
             if (!dbUserTable) {
                 res.status(400).json({ alert: 'User Credentials Not Recognized' });
