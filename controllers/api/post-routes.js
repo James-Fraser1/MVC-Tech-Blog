@@ -47,7 +47,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-// POST request made to create new posts
+    // POST request made to create new posts
     Post.create({
         title: req.body.title,
         post_url: req.body.post_url,
@@ -60,5 +60,28 @@ router.post('/', (req, res) => {
         });
 });
 
+router.put('/:id', (req, res) => {
+    Post.update(
+        {
+            title: req.body.title
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        }
+    )
+        .then(dbPostData => {
+            if (!dbPostData) {
+                res.status(404).json({ message: 'Post not matching any ID' });
+                return;
+            }
+            res.json(dbPostData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
 module.exports = router;
