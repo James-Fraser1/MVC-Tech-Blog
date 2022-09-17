@@ -62,7 +62,7 @@ THEN I am able to view comments but I am prompted to log in again before I can a
 
 &#10148; npm i dotenv express express-session express-handlebars sequelize connect-session-sequelize mysql2 bcrypt
 
-&#10148; npm i install
+&#10148; npm install
 
 
 ## **Usage**
