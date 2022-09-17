@@ -6,6 +6,7 @@ router.get('/', (req, res) => {
     console.log('All Users have been received');
     Post.findAll({
         attributes: ['id', 'post_url', 'title', 'created_at'],
+        order: [['created_at', 'DESC']],
         include: [
             {
                 model: User,
@@ -46,8 +47,8 @@ router.get('/:id', (req, res) => {
         });
 });
 
+// POST request made to create new posts
 router.post('/', (req, res) => {
-    // POST request made to create new posts
     Post.create({
         title: req.body.title,
         post_url: req.body.post_url,
