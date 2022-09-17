@@ -60,6 +60,7 @@ router.post('/', (req, res) => {
         });
 });
 
+// NOT CURRENTLY WORKING, NEEDS SOME EDITS
 router.put('/:id', (req, res) => {
     Post.update(
         {
@@ -71,6 +72,25 @@ router.put('/:id', (req, res) => {
             }
         }
     )
+        .then(dbPostData => {
+            if (!dbPostData) {
+                res.status(404).json({ message: 'Post not matching any ID' });
+                return;
+            }
+            res.json(dbPostData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+router.delete('/:id', (req, res) => {
+    Post.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
         .then(dbPostData => {
             if (!dbPostData) {
                 res.status(404).json({ message: 'Post not matching any ID' });
