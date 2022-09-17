@@ -65,16 +65,17 @@ router.post('/login', withAuth, (req, res) => {
             email: req.session.email
         }
     })
+    // When user info doesn't work, give vague response not letting them know if username or password was incorrect
         .then(dbUserTable => {
             if (!dbUserTable) {
-                res.status(400).json({ alert: 'Email Address Not Registered to a User!' });
+                res.status(400).json({ alert: 'User Credentials Not Recognized' });
                 return;
             }
             const properPW = dbUserTable.comparePassword(req.body.password);
             if (!properPW) {
-                res.status(400).json({ alert: 'IT ISNT HARD TO REMEMBER YOUR PASSWORD, TRY AGAIN GIRL.' })
+                res.status(400).json({ alert: 'User Credentials Not Recognized' })
             } else {
-                console.log('==========');
+                console.log('Credentials Recognized');
             };
             req.session.save(() => {
                 req.session.UserID = dbUserTable.id;
