@@ -3,7 +3,7 @@ const { Post, User } = require('../../models');
 
 // GET route to findAll Posts
 router.get('/', (req, res) => {
-    console.log('All Users have been received');
+    console.log('All Posts have been received');
     Post.findAll({
         attributes: ['id', 'post_url', 'title', 'created_at'],
         order: [['created_at', 'DESC']],
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
             }
         ]
     })
-        .then(dbPostData => res.json(dbPostData))
+        .then(PostInfo => res.json(PostInfo))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -34,12 +34,12 @@ router.get('/:id', (req, res) => {
             }
         ]
     })
-        .then(dbPostData => {
-            if (!dbPostData) {
+        .then(PostInfo => {
+            if (!PostInfo) {
                 res.status(404).json({ message: 'Post not matching any ID' });
                 return;
             }
-            res.json(dbPostData);
+            res.json(PostInfo);
         })
         .catch(err => {
             console.log(err);
@@ -54,7 +54,7 @@ router.post('/', (req, res) => {
         post_url: req.body.post_url,
         user_id: req.body.user_id
     })
-        .then(dbPostData => res.json(dbPostData))
+        .then(PostInfo => res.json(PostInfo))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -73,12 +73,12 @@ router.put('/:id', (req, res) => {
             }
         }
     )
-        .then(dbPostData => {
-            if (!dbPostData) {
+        .then(PostInfo => {
+            if (!PostInfo) {
                 res.status(404).json({ message: 'Post not matching any ID' });
                 return;
             }
-            res.json(dbPostData);
+            res.json(PostInfo);
         })
         .catch(err => {
             console.log(err);
@@ -92,12 +92,12 @@ router.delete('/:id', (req, res) => {
             id: req.params.id
         }
     })
-        .then(dbPostData => {
-            if (!dbPostData) {
+        .then(PostInfo => {
+            if (!PostInfo) {
                 res.status(404).json({ message: 'Post not matching any ID' });
                 return;
             }
-            res.json(dbPostData);
+            res.json(PostInfo);
         })
         .catch(err => {
             console.log(err);
