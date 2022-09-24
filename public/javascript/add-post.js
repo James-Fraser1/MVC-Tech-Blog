@@ -3,10 +3,10 @@ async function newFormHandler(event) {
   
     // Added Post title in async function
     const title = document.querySelector('input[name="post-title"]').value;
-        // Added Post url in async function
+    // Added Post url in async function
     const post_url = document.querySelector('input[name="post-url"]').value;
   
-    // Returning posts after their creation, fetching that new post data, and sending to the user page in application/json
+    // Returning posts after their creation, fetching that new post data, and sending to the dashboard page in json format
     const response = await fetch(`/api/posts`, {
       method: 'POST',
       body: JSON.stringify({
@@ -18,7 +18,7 @@ async function newFormHandler(event) {
       }
     });
   
-    // If previous response is invalid, and I pretend to believe you have the best 
+    // If response is ok, commit new post to the dashboard, otherwise add an error alert
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
