@@ -30,5 +30,5 @@ async function commentFormHandler(event) {
     }
 }
 
-//   Upon reading the query in Javascript, the file path connects the new comment
+// Upon clicking the submit comment button, run above async function
 document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
