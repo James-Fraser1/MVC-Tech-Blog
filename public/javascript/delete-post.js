@@ -1,7 +1,7 @@
 async function deleteFormHandler(event) {
     event.preventDefault();
 
-    // get the Post id from the url and convert it into a string
+    // Select a Post by ID from the url and convert it into a string in order to delete it
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
