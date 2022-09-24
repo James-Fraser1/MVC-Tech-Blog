@@ -26,5 +26,5 @@ async function newFormHandler(event) {
     }
   }
   
-//   Upon reading the query in Javascript, the file path connects the new prn
+//   Upon reading the query in Javascript, the file path connects the new post
   document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
