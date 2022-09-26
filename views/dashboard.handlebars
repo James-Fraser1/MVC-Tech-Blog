@@ -1,26 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MVC Tech Blog</title>
-</head>
-<body>
+<section>
+  <h2>Create New Post</h2>
 
-    <nav>
+  <form class="new-post-form">
+    <div>
+      <label for="post-title">Title</label>
+      <input type="text" id="post-title" name="post-title" />
+    </div>
+    <div>
+      <label for="post-url">Link</label>
+      <input id="post-url" name="post-url" />
+    </div>
+    <button type="submit" class="btn">Create</button>
+  </form>
+</section>
 
-    </nav>
+{{#if posts.length}}
+<section>
+  <h2>Your Posts</h2>
+  <ol>
+    {{#each posts as |post|}}
+    <li>
+      {{> post-info post}}
+      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
 
-    {{!-- <header>
-        <div class="columns is-centered">
-            <a>MVC Tech Blog</a>
-        </div>
-    </header> --}}
-{{#each posts}}
-<h2>{{title}}</h2>
-{{!-- Potentially More HTML data --}}
-{{/each}}
-
-</body>
-</html>
+<script src="/javascript/add-post.js"></script>
