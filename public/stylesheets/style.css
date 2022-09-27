@@ -1,3 +1,6 @@
+* {
+    text-align: center;
+}
 .navbar-item img {
     max-height: 5rem;
 }

@@ -3,8 +3,8 @@
     <h3>{{title}}</h3>
   </div>
   <div class="meta">
-    {{vote_count}} {{ vote_count}} by {{user.username}} on {{format_date created_at}}
+    {{vote_count}} {{ vote_count}} by {{user.username}} on {{ created_at}}
     |
-    <a href="/post/{{id}}">{{comments.length}} {{ "comment" comments.length}}</a>
+    <a href="/post/{{id}}">{{comments.length}} {{comments.length}}</a>
   </div>
 </article>

@@ -51,7 +51,6 @@ const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
-const helpers = require('./utils/helpers');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -69,9 +68,18 @@ const sess = {
   })
 };
 
+var date = new Date('December 25, 1995 23:15:30');
+
+function current_date() {
+  console.log(date)
+  return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+}
+
+current_date();
+
 app.use(session(sess));
 
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({ current_date });
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
