@@ -2,9 +2,9 @@ async function loginPage(event) {
     event.preventDefault();
     console.log("Login Page Reached!")
     // email link
-    const email = document.querySelector('#email-signin').value.trim();
+    const email = document.querySelector('#email-login').value.trim();
     // password link
-    const password = document.querySelector('#password-signin').value.trim();
+    const password = document.querySelector('#password-login').value.trim();
     console.log(email, password);
 
     if (email && password) {
@@ -30,11 +30,11 @@ async function registerPage(event) {
     event.preventDefault();
     console.log("Hit Register Page!")
     // username link
-    const username = document.querySelector('#user-register').value.trim();
+    const username = document.querySelector('#username-signup').value.trim();
     // email link
-    const email = document.querySelector('#email-register').value.trim();
+    const email = document.querySelector('#email-signup').value.trim();
     // password link
-    const password = document.querySelector('#password-register').value.trim();
+    const password = document.querySelector('#password-signup').value.trim();
 
     if (username && email && password) {
         const registerFeedback = await fetch('/api/users', {
@@ -56,7 +56,7 @@ async function registerPage(event) {
 }
 
 // Event Listener on Register form navigates user to login page
-document.querySelector('.login-page').addEventListener('submit', loginPage);
+document.querySelector('.login-form').addEventListener('submit', loginPage);
 
 // Event Listener on Login form navigates user to register page
-document.querySelector('.register-page').addEventListener('submit', registerPage);
+document.querySelector('.signup-form').addEventListener('submit', registerPage);
