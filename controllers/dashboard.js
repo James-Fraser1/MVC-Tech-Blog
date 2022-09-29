@@ -9,6 +9,7 @@ router.get('/', withAuth, (req, res) => {
 });
 
 router.get('/edit/:id', withAuth, (req, res) => {
+    console.log('edits rendered');
     Post.findByPk(req.params.id, {
         attributes: [
             'id',
