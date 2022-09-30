@@ -61,7 +61,7 @@ router.post('/', (req, res) => {
         });
 });
 
-// NOT CURRENTLY WORKING, NEEDS SOME EDITS
+// PUT request made to update existing posts
 router.put('/:id', (req, res) => {
     Post.update(
         {
