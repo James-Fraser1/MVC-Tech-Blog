@@ -1,5 +1,3 @@
-const { error } = require("console");
-
 async function logoutPage() {
     console.log("Logout Page Reached!")
     const logoutFeedback = await fetch('/api/users/logout', {
@@ -17,4 +15,4 @@ async function logoutPage() {
 }
 
 // OnClick Button navigates logs out user returning them to login page
-document.getElementById('logout-form').onclick(logoutPage);
+document.getElementById('logout-form').addEventListener("click", logoutPage);

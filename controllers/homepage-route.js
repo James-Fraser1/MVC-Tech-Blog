@@ -16,14 +16,16 @@ router.get('/login', (req, res) => {
     res.render('login')
 });
 
-// router.get('/dashboard', async (req, res) => {
-//     const postData = await Post.findAll();
-//     const posts = postData.map((post) => post.get({plain: true})) 
-//         res.render('home', {
-//             layouts: "main",
-//             posts
-//         })
-// });
+router.get('/dashboard', async (req, res) => {
+    const postData = await Post.findAll();
+    const posts = postData.map((post) => post.get({plain: true})) 
+        res.render('home', {
+            layouts: "main",
+            posts
+        })
+});
+
+
 
 router.get('/register', (req, res) => {
     console.log('Register route properly redirected!')

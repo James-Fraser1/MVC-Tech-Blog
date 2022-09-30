@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Comment } = require('../../models');
+const { Comment, User } = require('../../models');
 
 router.get('/', (req, res) => {
     Comment.create({
@@ -16,15 +16,10 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     console.log('All Comments have been received');
-    Comment.findAll({
-        attributes: ['id', 'comment_text', 'user_id', 'post_id', 'created_at'],
-        order: [['created_at', 'DESC']],
-        include: [
-            {
-                model: User,
-                attributes: ['comment']
-            }
-        ]
+    Comment.create({
+        ...req.body,
+        user_id:
+        req.session.UserID
     })
         .then(CommentInfo => res.json(CommentInfo))
         .catch(err => {
@@ -33,23 +28,23 @@ router.post('/', (req, res) => {
         });
 });
 
-router.delete('/:id', (req, res) => {
-    Comment.destroy({
-        where: {
-            id: req.params.id
-        }
-    })
-        .then(CommentInfo => {
-            if (!CommentInfo) {
-                res.status(404).json({ message: 'Comment not matching any ID' });
-                return;
-            }
-            res.json(CommentInfo);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
+// router.delete('/:id', (req, res) => {
+//     Comment.destroy({
+//         where: {
+//             id: req.params.id
+//         }
+//     })
+//         .then(CommentInfo => {
+//             if (!CommentInfo) {
+//                 res.status(404).json({ message: 'Comment not matching any ID' });
+//                 return;
+//             }
+//             res.json(CommentInfo);
+//         })
+//         .catch(err => {
+//             console.log(err);
+//             res.status(500).json(err);
+//         });
+// });
 
 module.exports = router;
