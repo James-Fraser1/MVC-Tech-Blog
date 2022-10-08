@@ -1,10 +1,5 @@
 const router = require('express').Router();
-<<<<<<< HEAD
 const { Comment, User } = require('../../models');
-=======
-const { Comment } = require('../../models');
-const withAuth = require('../../utils/auth');
->>>>>>> 6dd3117b391204df1e339a6c70bd3ef51d29fd20
 
 router.get('/', (req, res) => {
     Comment.create({
