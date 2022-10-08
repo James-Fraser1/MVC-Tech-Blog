@@ -17,7 +17,7 @@ async function newFormHandler(event) {
         'Content-Type': 'application/json'
       }
     });
-  
+    console.log("Posting creation");
     // If response is ok, commit new post to the dashboard, otherwise add an error alert
     if (response.ok) {
       document.location.replace('/dashboard');
@@ -28,3 +28,4 @@ async function newFormHandler(event) {
   
 //   Upon reading the query in Javascript, the file path connects the new post
   document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+  console.log("Post create button clicked!");
