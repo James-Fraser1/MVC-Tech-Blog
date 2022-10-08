@@ -1,10 +1,6 @@
 const router = require('express').Router();
-<<<<<<< HEAD
-const { Post, User, Comment } = require('../../models');
-=======
 const { Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
->>>>>>> 6dd3117b391204df1e339a6c70bd3ef51d29fd20
 
 // GET route to findAll Posts
 router.get('/', withAuth, (req, res) => {
@@ -81,14 +77,8 @@ router.post('/', withAuth, (req, res) => {
         });
 });
 
-<<<<<<< HEAD
-// NOT CURRENTLY WORKING, NEEDS SOME EDITS
-router.put('/:id', withAuth, (req, res) => {
-    console.log('Response');
-=======
 // PUT request made to update existing posts
 router.put('/:id', (req, res) => {
->>>>>>> unsaved
     Post.update(
         {
             title: req.body.title

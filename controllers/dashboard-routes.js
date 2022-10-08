@@ -3,7 +3,6 @@ const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 const sequelize = require('sequelize');
 
-<<<<<<< HEAD:controllers/dashboard-routes.js
 // main route
 router.get('/', withAuth, (req, res) => {
     console.log('Dashboard route properly redirected with login authorization')
@@ -50,8 +49,5 @@ router.get('/edit/:id', withAuth, (req, res) => {
             res.status(500).json(err);
         });
 });
-=======
-
->>>>>>> 6dd3117b391204df1e339a6c70bd3ef51d29fd20:controllers/dashboard.js
 
 module.exports = router;
