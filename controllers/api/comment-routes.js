@@ -33,26 +33,6 @@ router.post('/', withAuth, (req, res) => {
         });
 });
 
-<<<<<<< HEAD
-// router.delete('/:id', (req, res) => {
-//     Comment.destroy({
-//         where: {
-//             id: req.params.id
-//         }
-//     })
-//         .then(CommentInfo => {
-//             if (!CommentInfo) {
-//                 res.status(404).json({ message: 'Comment not matching any ID' });
-//                 return;
-//             }
-//             res.json(CommentInfo);
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             res.status(500).json(err);
-//         });
-// });
-=======
 router.delete('/:id', withAuth, (req, res) => {
     Comment.destroy({
         where: {
@@ -71,6 +51,5 @@ router.delete('/:id', withAuth, (req, res) => {
             res.status(500).json(err);
         });
 });
->>>>>>> 6dd3117b391204df1e339a6c70bd3ef51d29fd20
 
 module.exports = router;
