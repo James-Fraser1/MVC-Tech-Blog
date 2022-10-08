@@ -67,8 +67,6 @@ THEN I am able to view comments but I am prompted to log in again before I can a
 
 ## **Usage**
 
-**[Click to watch the demonstration &#127916;](https://drive.google.com/file/d/146LGXiG7SDohEZUlyn7aGoVqIeSywOHT/view)**
-
 Initiate the application using the command line prompt
 
 &#10148; npm start
