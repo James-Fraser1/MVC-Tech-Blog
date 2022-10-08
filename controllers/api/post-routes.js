@@ -81,9 +81,14 @@ router.post('/', withAuth, (req, res) => {
         });
 });
 
+<<<<<<< HEAD
 // NOT CURRENTLY WORKING, NEEDS SOME EDITS
 router.put('/:id', withAuth, (req, res) => {
     console.log('Response');
+=======
+// PUT request made to update existing posts
+router.put('/:id', (req, res) => {
+>>>>>>> unsaved
     Post.update(
         {
             title: req.body.title

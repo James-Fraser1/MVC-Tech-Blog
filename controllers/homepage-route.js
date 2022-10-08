@@ -25,8 +25,6 @@ router.get('/dashboard', async (req, res) => {
         })
 });
 
-
-
 router.get('/register', (req, res) => {
     console.log('Register route properly redirected!')
     res.render('login')
